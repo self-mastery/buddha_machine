@@ -1,4 +1,4 @@
-name: Flutter Web
+name: buddha_machine
 on:
   push:
     branches:
@@ -22,7 +22,7 @@ jobs:
           git config --global user.email torrlau@163.com
           git config --global user.name self-mastery
           git status
-          git remote add origin https://${{secrets.commit_secret}}@github.com/self-mastery/buddha_machinee.git
+          git remote add origin https://${{secrets.commit_secret}}@github.com/self-mastery/buddha_machine.git
           git checkout -b gh-pages
           git add --all
           git commit -m "update"
