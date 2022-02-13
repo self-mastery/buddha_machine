@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '念佛机',
+      title: '南無阿彌陀佛',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.red,
       ),
-      home: const MyHomePage(title: '阿弥陀佛'),
+      home: const MyHomePage(title: '南無阿彌陀佛'),
     );
   }
 }
