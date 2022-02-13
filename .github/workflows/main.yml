@@ -15,7 +15,7 @@ jobs:
         with:
           channel: 'dev'
       - run: flutter pub get
-      - run: flutter build web --release
+      - run: flutter build web --release --no-sound-null-safety
       - run: |
           cd build/web
           git init
