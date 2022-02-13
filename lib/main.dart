@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: '念佛机',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -59,16 +59,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
-    audioCache.loop('amtf.mp3');
-
     audioCache.fixedPlayer = audioPlayer;
+    //audioPlayer.resume();
 
     _listenAudioPlayerStateController();
 
-    print("initstate");
+    //print("initstate");
   }
 
   floatingBtnClicked() async {
@@ -76,6 +74,8 @@ class _MyHomePageState extends State<MyHomePage> {
       audioPlayer.pause();
     } else if (_state == AudioPlayerState.PAUSED) {
       audioPlayer.resume();
+    } else {
+      audioCache.loop('amtf.mp3');
     }
   }
 
@@ -125,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: floatingBtnClicked,
-        tooltip: 'Increment',
+        tooltip: '控制中心',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );

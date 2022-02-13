@@ -1,6 +1,6 @@
 {
-    "name": "buddhamachine",
-    "short_name": "buddhamachine",
+    "name": "念佛机",
+    "short_name": "amtf",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
