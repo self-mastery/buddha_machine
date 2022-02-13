@@ -40,7 +40,7 @@ dependencies:
   #msb_pkg:
   #  path: ../packages
 
-  audioplayers: ^0.16.1
+  #audioplayers: ^0.16.1
 
 
 dev_dependencies:
@@ -59,7 +59,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 
-  audioplayers: ^0.16.1
+  #audioplayers: ^0.16.1
 
 flutter:
 

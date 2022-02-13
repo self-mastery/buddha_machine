@@ -1,6 +1,6 @@
-import 'package:audioplayers/audio_cache.dart';
+//import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audioplayers.dart';
+//import 'package:audioplayers/audioplayers.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,17 +51,17 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  AudioPlayer audioPlayer = AudioPlayer();
-  AudioCache audioCache = AudioCache(prefix: 'sounds/');
+  //AudioPlayer audioPlayer = AudioPlayer();
+  //AudioCache audioCache = AudioCache(prefix: 'sounds/');
 
   //默认状态
-  AudioPlayerState _state = AudioPlayerState.STOPPED;
+  //AudioPlayerState _state = AudioPlayerState.STOPPED;
 
   @override
   void initState() {
     super.initState();
 
-    audioCache.fixedPlayer = audioPlayer;
+    //audioCache.fixedPlayer = audioPlayer;
     //audioPlayer.resume();
 
     _listenAudioPlayerStateController();
@@ -70,32 +70,32 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   floatingBtnClicked() async {
-    if (_state == AudioPlayerState.PLAYING) {
-      audioPlayer.pause();
-    } else if (_state == AudioPlayerState.PAUSED) {
-      audioPlayer.resume();
-    } else {
-      audioCache.loop('amtf.mp3');
-    }
+//    if (_state == AudioPlayerState.PLAYING) {
+//      audioPlayer.pause();
+//    } else if (_state == AudioPlayerState.PAUSED) {
+//      audioPlayer.resume();
+//    } else {
+//      audioCache.loop('amtf.mp3');
+//    }
   }
 
   ///监听播放器当前状态
   _listenAudioPlayerStateController() {
-    //iOS
-    // if (Platform.isIOS) {
-    audioPlayer.onNotificationPlayerStateChanged
-        .listen((value) {
-      print("isIOS监听播放: $value");
-      _state = value;
-    });
-    // }
-    //android
-    // if (Platform.isAndroid) {
-    audioPlayer.onPlayerStateChanged.listen((value) {
-      print("isAndroid监听播放: $value");
-      _state = value;
-    });
-    // }
+//    //iOS
+//    // if (Platform.isIOS) {
+//    audioPlayer.onNotificationPlayerStateChanged
+//        .listen((value) {
+//      print("isIOS监听播放: $value");
+//      _state = value;
+//    });
+//    // }
+//    //android
+//    // if (Platform.isAndroid) {
+//    audioPlayer.onPlayerStateChanged.listen((value) {
+//      print("isAndroid监听播放: $value");
+//      _state = value;
+//    });
+//    // }
   }
 
   @override
