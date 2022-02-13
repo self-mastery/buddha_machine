@@ -1,4 +1,4 @@
-name: buddha_machine
+name: merge_master
 on:
   push:
     branches:
