@@ -51,12 +51,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  AudioPlayer audioPlayer = AudioPlayer();
+  //AudioPlayer audioPlayer = AudioPlayer();
   //AudioPlayer audioPlayer = AudioPlayer(mode: PlayerMode.LOW_LATENCY);
   //AudioCache audioCache = AudioCache(prefix: 'sounds/');
 
   //默认状态
-  AudioPlayerState _state = AudioPlayerState.STOPPED;
+  //AudioPlayerState _state = AudioPlayerState.STOPPED;
 
   @override
   void initState() {
@@ -70,27 +70,34 @@ class _MyHomePageState extends State<MyHomePage> {
     //print("initstate");
   }
 
-  @override
-  void deactivate() async{
-    print('结束');
-    int result = await audioPlayer.release();
-    if (result == 1) {
-      print('release success');
-    } else {
-      print('release failed');
-    }
-    super.deactivate();
-  }
+//  @override
+//  void deactivate() async{
+//    print('结束');
+//    int result = await audioPlayer.release();
+//    if (result == 1) {
+//      print('release success');
+//    } else {
+//      print('release failed');
+//    }
+//    super.deactivate();
+//  }
 
   floatingBtnClicked() async {
-    if (_state == AudioPlayerState.PLAYING) {
-      audioPlayer.pause();
-    } else if (_state == AudioPlayerState.PAUSED) {
-      audioPlayer.resume();
-    } else {
-      audioPlayer.play("https://vkceyugu.cdn.bspapp.com/VKCEYUGU-58bc9f1d-f85f-4ade-a530-167b20c023d7/95957768-a5fe-4eaa-a596-b4a3b0f84aef.mp3");
-      //audioCache.loop('amtf.mp3');
-    }
+    AudioPlayer audioPlayer = AudioPlayer();
+    await audioPlayer.setReleaseMode(ReleaseMode.STOP); // set release mode so that it never releases
+    await audioPlayer.play("https://vkceyugu.cdn.bspapp.com/VKCEYUGU-58bc9f1d-f85f-4ade-a530-167b20c023d7/95957768-a5fe-4eaa-a596-b4a3b0f84aef.mp3");
+    //await audioPlayer.setUrl('clicking.mp3'); // prepare the player with this audio but do not start playing
+    // 点击按钮时
+    //await audioPlayer.resume(); // 快速播放声音，不会释放
+    //    if (_state == AudioPlayerState.PLAYING) {
+//      audioPlayer.pause();
+//    } else if (_state == AudioPlayerState.PAUSED) {
+//      audioPlayer.resume();
+//    } else {
+//      //audioPlayer = AudioPlayer();
+//      audioPlayer.play("https://vkceyugu.cdn.bspapp.com/VKCEYUGU-58bc9f1d-f85f-4ade-a530-167b20c023d7/95957768-a5fe-4eaa-a596-b4a3b0f84aef.mp3");
+//      //audioCache.loop('amtf.mp3');
+//    }
   }
 
   ///监听播放器当前状态
@@ -105,10 +112,10 @@ class _MyHomePageState extends State<MyHomePage> {
     // }
     //android
     // if (Platform.isAndroid) {
-    audioPlayer.onPlayerStateChanged.listen((value) {
-      print("isAndroid监听播放: $value");
-      _state = value;
-    });
+//    audioPlayer.onPlayerStateChanged.listen((value) {
+//      print("isAndroid监听播放: $value");
+//      _state = value;
+//    });
     // }
   }
 
