@@ -64,9 +64,21 @@ class _MyHomePageState extends State<MyHomePage> {
     //audioCache.fixedPlayer = audioPlayer;
     //audioPlayer.resume();
 
-    //_listenAudioPlayerStateController();
+    _listenAudioPlayerStateController();
 
     //print("initstate");
+  }
+
+  @override
+  void deactivate() async{
+    print('结束');
+    int result = await audioPlayer.release();
+    if (result == 1) {
+      print('release success');
+    } else {
+      print('release failed');
+    }
+    super.deactivate();
   }
 
   floatingBtnClicked() async {
