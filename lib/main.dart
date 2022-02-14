@@ -51,11 +51,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  AudioPlayer audioPlayer = AudioPlayer();
+  //AudioPlayer audioPlayer = AudioPlayer();
   //AudioCache audioCache = AudioCache(prefix: 'sounds/');
 
   //默认状态
-  AudioPlayerState _state = AudioPlayerState.STOPPED;
+  //AudioPlayerState _state = AudioPlayerState.STOPPED;
 
   @override
   void initState() {
@@ -70,34 +70,34 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   floatingBtnClicked() async {
-    if (_state == AudioPlayerState.PLAYING) {
-      audioPlayer.pause();
-    } else if (_state == AudioPlayerState.PAUSED) {
-      audioPlayer.resume();
-    } else {
-      audioPlayer.play("https://vkceyugu.cdn.bspapp.com/VKCEYUGU-58bc9f1d-f85f-4ade-a530-167b20c023d7/95957768-a5fe-4eaa-a596-b4a3b0f84aef.mp3");
-
-      //audioCache.loop('amtf.mp3');
-    }
+//    if (_state == AudioPlayerState.PLAYING) {
+//      audioPlayer.pause();
+//    } else if (_state == AudioPlayerState.PAUSED) {
+//      audioPlayer.resume();
+//    } else {
+//      audioPlayer.play("https://vkceyugu.cdn.bspapp.com/VKCEYUGU-58bc9f1d-f85f-4ade-a530-167b20c023d7/95957768-a5fe-4eaa-a596-b4a3b0f84aef.mp3");
+//
+//      //audioCache.loop('amtf.mp3');
+//    }
   }
 
   ///监听播放器当前状态
   _listenAudioPlayerStateController() {
-    //iOS
-    // if (Platform.isIOS) {
-    audioPlayer.onNotificationPlayerStateChanged
-        .listen((value) {
-      print("isIOS监听播放: $value");
-      _state = value;
-    });
-    // }
-    //android
-    // if (Platform.isAndroid) {
-    audioPlayer.onPlayerStateChanged.listen((value) {
-      print("isAndroid监听播放: $value");
-      _state = value;
-    });
-    // }
+//    //iOS
+//    // if (Platform.isIOS) {
+//    audioPlayer.onNotificationPlayerStateChanged
+//        .listen((value) {
+//      print("isIOS监听播放: $value");
+//      _state = value;
+//    });
+//    // }
+//    //android
+//    // if (Platform.isAndroid) {
+//    audioPlayer.onPlayerStateChanged.listen((value) {
+//      print("isAndroid监听播放: $value");
+//      _state = value;
+//    });
+//    // }
   }
 
   @override
