@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
     //audioCache.fixedPlayer = audioPlayer;
     //audioPlayer.resume();
 
-    _listenAudioPlayerStateController();
+    //_listenAudioPlayerStateController();
 
     //print("initstate");
   }
