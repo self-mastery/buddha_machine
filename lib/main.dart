@@ -52,6 +52,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   AudioPlayer audioPlayer = AudioPlayer();
+  //AudioPlayer audioPlayer = AudioPlayer(mode: PlayerMode.LOW_LATENCY);
   //AudioCache audioCache = AudioCache(prefix: 'sounds/');
 
   //默认状态
@@ -65,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
     //audioPlayer.resume();
 
     _listenAudioPlayerStateController();
-
+    //AudioPlayer.logEnabled = true;
     //print("initstate");
   }
 
@@ -94,13 +95,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   ///监听播放器当前状态
   _listenAudioPlayerStateController() {
-    //iOS
-    // if (Platform.isIOS) {
-    audioPlayer.onNotificationPlayerStateChanged
-        .listen((value) {
-      print("isIOS监听播放: $value");
-      _state = value;
-    });
+//    //iOS
+//    // if (Platform.isIOS) {
+//    audioPlayer.onNotificationPlayerStateChanged
+//        .listen((value) {
+//      print("isIOS监听播放: $value");
+//      _state = value;
+//    });
     // }
     //android
     // if (Platform.isAndroid) {
