@@ -51,7 +51,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  //AudioPlayer audioPlayer = AudioPlayer();
+  AudioPlayer audioPlayer = AudioPlayer();
   //AudioCache audioCache = AudioCache(prefix: 'sounds/');
 
   //默认状态
