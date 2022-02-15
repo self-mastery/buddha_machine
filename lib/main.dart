@@ -1,6 +1,7 @@
 //import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audioplayers.dart';
+//import 'package:audioplayers/audioplayers.dart';
+import 'package:video_player/video_player.dart';
 
 void main() {
   runApp(const MyApp());
@@ -57,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   //默认状态
   //AudioPlayerState _state = AudioPlayerState.STOPPED;
+  late VideoPlayerController _controller;
 
   @override
   void initState() {
@@ -68,6 +70,13 @@ class _MyHomePageState extends State<MyHomePage> {
     _listenAudioPlayerStateController();
     //AudioPlayer.logEnabled = true;
     //print("initstate");
+
+    _controller = VideoPlayerController.network(
+        'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-58bc9f1d-f85f-4ade-a530-167b20c023d7/95957768-a5fe-4eaa-a596-b4a3b0f84aef.mp3')
+      ..initialize().then((_) {
+        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+        setState(() {});
+      });
   }
 
 //  @override
@@ -83,10 +92,13 @@ class _MyHomePageState extends State<MyHomePage> {
 //  }
 
   floatingBtnClicked() async {
-    AudioPlayer audioPlayer = AudioPlayer();
-    await audioPlayer.setReleaseMode(ReleaseMode.STOP); // set release mode so that it never releases
-    await audioPlayer.play("https://vkceyugu.cdn.bspapp.com/VKCEYUGU-58bc9f1d-f85f-4ade-a530-167b20c023d7/95957768-a5fe-4eaa-a596-b4a3b0f84aef.mp3");
+    //AudioPlayer audioPlayer = AudioPlayer();
+    //await audioPlayer.setReleaseMode(ReleaseMode.STOP); // set release mode so that it never releases
+    //await audioPlayer.play("https://vkceyugu.cdn.bspapp.com/VKCEYUGU-58bc9f1d-f85f-4ade-a530-167b20c023d7/95957768-a5fe-4eaa-a596-b4a3b0f84aef.mp3");
     //await audioPlayer.setUrl('clicking.mp3'); // prepare the player with this audio but do not start playing
+
+
+
     // 点击按钮时
     //await audioPlayer.resume(); // 快速播放声音，不会释放
     //    if (_state == AudioPlayerState.PLAYING) {
@@ -98,6 +110,10 @@ class _MyHomePageState extends State<MyHomePage> {
 //      audioPlayer.play("https://vkceyugu.cdn.bspapp.com/VKCEYUGU-58bc9f1d-f85f-4ade-a530-167b20c023d7/95957768-a5fe-4eaa-a596-b4a3b0f84aef.mp3");
 //      //audioCache.loop('amtf.mp3');
 //    }
+
+    _controller.value.isPlaying
+        ? _controller.pause()
+        : _controller.play();
   }
 
   ///监听播放器当前状态
